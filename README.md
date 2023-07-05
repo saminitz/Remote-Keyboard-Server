@@ -15,7 +15,7 @@ To get a local copy of the server up and running follow these steps.
 
 ### Prerequisites
 
-You need to hve NodeJS installed on your PC. If you already have npm you can use the following command to ensure you are up to date
+You need to have NodeJS installed on your PC. If you already have npm you can use the following command to ensure you are up to date
 
   ```sh
   npm install npm@latest -g
