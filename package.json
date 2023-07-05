@@ -1,0 +1,21 @@
+{
+  "name": "remote-keyboard-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon",
+    "start": "node ./src/server.js"
+  },
+  "author": "Samuel Nitzsche",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.3",
+    "@types/ws": "^8.5.5",
+    "nodemon": "^2.0.22"
+  }
+}
