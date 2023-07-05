@@ -49,7 +49,7 @@ You need to hve NodeJS installed on your PC. If you already have npm you can use
 
 **Replace in both snippets the IP accordingly**
 
-Paste the following code in the host DOM Console (You can open it in most browsers with `F12`)
+Paste the following code in the DOM Console of the host (You can open it in most browsers with `F12`)
 ```js
 const ws = new WebSocket('ws://127.0.0.1:3050?host');
 ws.onmessage = function message(event) {
@@ -59,7 +59,7 @@ ws.onmessage = function message(event) {
 ```
 
 
-Paste the following code in the client DOM Console (You can open it in most browsers with `F12`)
+Paste the following code in the DOM Console of the client (You can open it in most browsers with `F12`)
 ```js
 const newContent = document.createElement('h1');
 newContent.setAttribute(
