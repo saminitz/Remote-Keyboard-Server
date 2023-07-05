@@ -47,7 +47,9 @@ You need to have NodeJS installed on your PC. If you already have npm you can us
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-**Replace in both snippets the IP accordingly**
+### **!!! Important Informations !!!**
+ * Replace the IP address in both snippets to the servers accordingly
+ * If the website has an iframe element then the host needs to first view/open the iframe element in the DOM console. Otherwise the event listener will not work! (I don't exactly know the reason why this behavior is but i found out while testing)
 
 ### Host
 
