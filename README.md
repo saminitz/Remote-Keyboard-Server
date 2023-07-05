@@ -47,7 +47,51 @@ You need to hve NodeJS installed on your PC. If you already have npm you can use
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-** TODO **
+**Replace in both snippets the IP accordingly**
+
+Paste the following code in the host DOM Console (You can open it in most browsers with `F12`)
+```js
+const ws = new WebSocket('ws://127.0.0.1:3050?host');
+ws.onmessage = function message(event) {
+  const data = JSON.parse(event.data);
+  document.dispatchEvent(new KeyboardEvent(data.type, data));
+};
+```
+
+
+Paste the following code in the client DOM Console (You can open it in most browsers with `F12`)
+```js
+const newContent = document.createElement('h1');
+newContent.setAttribute(
+  'style',
+  'width: calc(100% - 4rem); height: calc(100% - 4rem); margin: 0; padding: 2rem; display: flex; justify-content: center; align-items: center; color: white; background-color: #35363a; font-family: monospace;'
+);
+newContent.textContent = 'You are now free to press any button you like :)';
+document.querySelector('html').replaceWith(newContent);
+
+const ws = new WebSocket('ws://127.0.0.1:8080');
+const eventHandler = (event) => {
+  if (event.repeat) return;
+
+  const data = {
+    type: event.type,
+    key: event.key,
+    keyCode: event.keyCode,
+    which: event.which,
+    code: event.code,
+    location: event.location,
+    altKey: event.altKey,
+    ctrlKey: event.ctrlKey,
+    metaKey: event.metaKey,
+    shiftKey: event.shiftKey,
+    repeat: event.repeat,
+  };
+  ws.send(JSON.stringify(data));
+};
+
+document.addEventListener('keydown', eventHandler);
+document.addEventListener('keyup', eventHandler);
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
