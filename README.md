@@ -27,15 +27,26 @@ You need to have NodeJS installed on your PC. If you already have npm you can us
    ```sh
    git clone https://github.com/saminitz/Remote-Keyboard-Server.git
    ```
+   
 2. Navigate into the cloned repository
     ```sh
     cd Remote-Keyboard-Server
     ```
+
 3. Install NPM packages
    ```sh
    npm install
    ```
-4. Start the server
+
+4. Generate private and public key
+    * **Info:** If want to use  unsecure websockets and the website of the hots allows it checkout the branch `ws-unsecure`
+
+    * I can recommend the following guide: [How to Generate Let’s Encrypt SSL using Certbot](https://tecadmin.net/how-to-generate-lets-encrypt-ssl-using-certbot/)
+
+    * Place the private key in the root folder of this repository and name it `key.pem`
+    * Place the public key in the root folder of this repository and name it `cert.pem`
+
+5. Start the server
    ```sh
    npm run start
    ```
@@ -48,14 +59,14 @@ You need to have NodeJS installed on your PC. If you already have npm you can us
 ## Usage
 
 ### **!!! Important Informations !!!**
- * Replace the IP address in both snippets to the servers accordingly
+ * Replace `your.domain` in both snippets to the servers accordingly
  * If the website has an iframe element then the host needs to first view/open the iframe element in the DOM console. Otherwise the event listener will not work! (I don't exactly know the reason why this behavior is but i found out while testing)
 
 ### Host
 
 Paste the following code in the DOM Console of the host (You can open it in most browsers with `F12`)
 ```js
-const ws = new WebSocket('ws://127.0.0.1:8080?host');
+const ws = new WebSocket('wss://your.domain:8080?host');
 ws.onmessage = function message(event) {
   const data = JSON.parse(event.data);
   document.dispatchEvent(new KeyboardEvent(data.type, data));
@@ -74,7 +85,7 @@ newContent.setAttribute(
 newContent.textContent = 'You are now free to press any button you like :)';
 document.querySelector('html').replaceWith(newContent);
 
-const ws = new WebSocket('ws://127.0.0.1:8080');
+const ws = new WebSocket('wss://your.domain:8080');
 const eventHandler = (event) => {
   if (event.repeat) return;
 
@@ -108,7 +119,3 @@ document.addEventListener('keyup', eventHandler);
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-[Node.js]: https://img.shields.io/badge/NodeJS-20232A?style=for-the-badge&logo=nodedotjs
-[NodeJS-url]: https://nodejs.org/

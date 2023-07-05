@@ -6,7 +6,7 @@ newContent.setAttribute(
 newContent.textContent = 'You are now free to press any button you like :)';
 document.querySelector('html').replaceWith(newContent);
 
-const ws = new WebSocket('ws://127.0.0.1:8080');
+const ws = new WebSocket('wss://your.domain:8080');
 const eventHandler = (event) => {
   if (event.repeat) return;
 
