@@ -2,7 +2,7 @@
 ## About The Project
 
 You want to be able to use your own keyboard in a remote browser of your friend?
-Then you have found the right project.
+Then you have found the right place.
 With this project you will be able to listen to every keystroke from one or more browsers (`clients`) and play back all pressed keys on another browser (`host`)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
