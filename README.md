@@ -59,7 +59,7 @@ You need to have NodeJS installed on your PC. If you already have npm you can us
 ## Usage
 
 ### **!!! Important Informations !!!**
- * Replace `your.domain` in both snippets to the servers accordingly
+ * Replace `your.domain` and the port `8080` in both snippets to the servers accordingly
  * If the website has an iframe element then the host needs to first view/open the iframe element in the DOM console. Otherwise the event listener will not work! (I don't exactly know the reason why this behavior is but i found out while testing)
 
 ### Host
@@ -78,7 +78,7 @@ ws.onmessage = function message(event) {
 
 ### Clients
 
-Paste the following code in the DOM Console of the client (You can open it in most browsers with `F12`)
+Go to the URL [about:blank](about:blank) and then paste the following code in the DOM Console of the client (You can open it in most browsers with `F12`)
 ```js
 const DOMAIN_OR_IP = 'your.domain';
 const PORT = 8080;
@@ -88,7 +88,14 @@ newContent.setAttribute(
   'style',
   'width: calc(100% - 4rem); height: calc(100% - 4rem); margin: 0; padding: 2rem; display: flex; justify-content: center; align-items: center; color: white; background-color: #35363a; font-family: monospace;'
 );
-newContent.innerHTML = '<h1>You are now free to press any button you like :)</h1>';
+newContent.innerHTML = `
+<head>
+  <title>Remote Keyboard Client</title>
+</head>
+<body style="height: fit-content;">
+  <h1>Feel free to press any button now :)</h1>
+</body>
+`;
 document.querySelector('html').replaceWith(newContent);
 
 const ws = new WebSocket('wss://' + DOMAIN_OR_IP + ':' + PORT);

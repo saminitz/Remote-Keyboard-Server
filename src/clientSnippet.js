@@ -6,7 +6,14 @@ newContent.setAttribute(
   'style',
   'width: calc(100% - 4rem); height: calc(100% - 4rem); margin: 0; padding: 2rem; display: flex; justify-content: center; align-items: center; color: white; background-color: #35363a; font-family: monospace;'
 );
-newContent.innerHTML = '<h1>You are now free to press any button you like :)</h1>';
+newContent.innerHTML = `
+<head>
+  <title>Remote Keyboard Client</title>
+</head>
+<body style="height: fit-content;">
+  <h1>Feel free to press any button now :)</h1>
+</body>
+`;
 document.querySelector('html').replaceWith(newContent);
 
 const ws = new WebSocket('wss://' + DOMAIN_OR_IP + ':' + PORT);
